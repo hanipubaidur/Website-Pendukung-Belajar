@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Study Support</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .scrollable {
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+        .scrollable::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scrollable::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+        .sticky-top-adjusted {
+            position: sticky;
+            top: 100px;
+        }
+        .carousel-card {
+            max-width: 300px;
+            height: 325px;
+        }
+        .carousel-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .fixed-spotify-player {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="Assets/learnly.png" alt="Learnly Logo" width="80" height="80" class="d-inline-block align-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Learnly</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pomodoro-section">Pomodoro Timer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#todo-list-section">To-Do List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#spotify-player-section">Spotify Player</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-none" id="profile-nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="register-nav-link" href="register.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="achievements.html">Achievements</a>
+                    </li>
+                </ul>
+                <span class="navbar-text" id="greeting-message">Hello!</span>
+            </div>
+        </div>
+    </nav>
+    <!--End Navbar-->
+
+    <!--Start Carousel-->
+    <div class="container-fluid mt-2 mb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md -8">
+                    <div id="welcomeCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card mx-auto carousel-card">
+                                    <img src="Assets/learnly.png" class="card-img-top" alt="Slide 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Welcome to Study Support</h5>
+                                        <p class="card-text">Your ultimate study companion.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card mx-auto carousel-card">
+                                    <img src="Assets/learnly.png" class="card-img-top" alt="Slide 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Pomodoro Timer</h5>
+                                        <p class="card-text">Boost your productivity with our Pomodoro Timer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card mx-auto carousel-card">
+                                    <img src="Assets/learnly.png" class="card-img-top" alt="Slide 3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">To-Do List</h5>
+                                        <p class="card-text">Organize your tasks efficiently.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card mx-auto carousel-card">
+                                    <img src="Assets/learnly.png" class="card-img-top" alt="Slide 4">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Spotify Player</h5>
+                                        <p class="card-text">Listen to your favorite tracks while studying.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="todoCarousel2" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card mx-auto carousel-card">
+                                    <div class="card-body text-center position-relative">
+                                        <h5 class="card-title">User  Profile</h5>
+                                        <img id="profile-picture-preview" src="Assets/profile.jpeg" alt="Profile Picture" class="img-fluid rounded-circle mb-2" width="200" height="150">
+                                        <div id="profile-info">
+                                            <!-- Profile information will be dynamically added here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card mx-auto carousel-card">
+                                    <div class="card-body text-center position-relative">
+                                        <div id="achievements-list" class="list-group">
+                                            <!-- Profile information will be dynamically added here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#todoCarousel2" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#todoCarousel2" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Carousel-->
+
+    <!--Start Pomodoro Timer, To-Do List, and Spotify Player-->
+    <div class="container mt-5" id="pomodoro-section">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Pomodoro Timer</h2>
+                        <div id="pomodoro-timer">
+                            <input type="number" id="study-time" placeholder="Study Time (minutes)" class="form-control mb-2">
+                            <input type="number" id="break-time" placeholder="Break Time (minutes)" class="form-control mb-2">
+                            <button id="start-timer" class="btn btn-primary mb-2">Start Timer</button>
+                            <button id="reset-timer" class="btn btn-secondary mb-2">Reset Timer</button>
+                            <div id="timer-display" class="display-4">00:00</div>
+                            <div id="study-stats" class="mt-3">
+                                <p>Start Time: <span id="start-time">N/A</span></p>
+                                <p>Finish Time: <span id="finish-time">N/A</span></p>
+                                <p>Total Study Time: <span id="total-study-time">0</span> minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4" id="spotify-player-section">
+                    <div class="card-body">
+                        <h2 class="card-title">Spotify Player</h2>
+                        <div id="spotify-player-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" id="todo-list-section">
+                <div class="card sticky-top-adjusted" style="position: sticky; top: 110px;">
+                    <div class="card-body">
+                        <h2 class="card-title">To-Do List</h2>
+                        <div class="scrollable">
+                            <div id="todo-list">
+                                <input type="text" id="new-item" placeholder="New Item" class="form-control mb-2">
+                                <button id="add-item" class="btn btn-success mb-2">Add</button>
+                                <ul id="items" class="list-group"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Pomodoro Timer, To-Do List, and Spotify Player-->
+
+    <!--Footer-->
+    <footer class="bg-light text-center text-lg-start sticky-bottom mt-3">
+        <div class="text-center p-3">
+            © <span id="current-year"></span>
+            <a class="text-dark text-decoration-none" href="https://www.instagram.com/nip.niff" target="_blank">Learnly</a>, All rights reserved.
+        </div>
+    </footer>
+    <!--End Footer-->
+
+    <div class="fixed-spotify-player">
+        <div id="spotify-player-container"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/greeting.js"></script>
+    <script src="js/pomodoro.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/spotifyPlayer.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/achievements.js"></script>
+    <script src="js/navbar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const welcomeCarousel = new bootstrap.Carousel(document.getElementById('welcomeCarousel'), {
+                interval: 2000
+            });
+            const todoCarousel = new bootstrap.Carousel(document.getElementById('todoCarousel2'), {
+                interval: 1500
+            });
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            const spotifyPlayerContainer = document.getElementById('spotify-player-container');
+            const iframe = document.createElement('iframe');
+            iframe.src = localStorage.getItem('spotifyPlayerState') || 'https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?autoplay=true';
+            iframe.width = '100%';
+            iframe.height = '80';
+            iframe.frameBorder = '0';
+            iframe.allow = 'encrypted-media';
+            spotifyPlayerContainer.appendChild(iframe);
+
+            window.addEventListener('beforeunload', function() {
+                localStorage.setItem('spotifyPlayerState', iframe.src);
+            });
+
+            const user = JSON.parse(localStorage.getItem('user'));
+            const registerNavLink = document.getElementById('register-nav-link');
+            const profileNavLink = document.getElementById('profile-nav-link');
+            const greetingMessage = document.getElementById('greeting-message');
+
+            if (user) {
+                registerNavLink.classList.add('d-none');
+                profileNavLink.classList.remove('d-none');
+                logoutNavLink.classList.remove('d-none');
+                logoutNavLink.addEventListener('click', function() {
+                    localStorage.removeItem('user');
+                    window.location.href = 'register.html';
+                });
+                greetingMessage.textContent = `Hello, ${user.username}!`;
+            }
+        });
+    </script>
+</body>
+</html>
